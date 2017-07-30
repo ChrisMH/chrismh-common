@@ -1,0 +1,11 @@
+.vscode/
+coverage/
+node_modules/
+src/
+dist/*.spec.js
+*.tgz
+.gitignore
+.npmignore
+jasmine.json
+karma.conf.js
+tsconfig.json

@@ -1,0 +1,31 @@
+{
+  "name": "chrismh-common",
+  "version": "1.1.1",
+  "description": "Common stuff",
+  "main": "dist/index.js",
+  "types": "dist/index.d.js",
+  "scripts": {
+    "build": "npm run clean && tsc",
+    "clean": "rimraf dist",
+    "prepare": "npm run build",
+    "test": "karma start"
+  },
+  "author": "Chris Hogan",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.18.1",
+    "reflect-metadata": "^0.1.10",
+    "rxjs": "^5.4.2"
+  },
+  "devDependencies": {
+    "@types/jasmine": "^2.5.35",
+    "jasmine-core": "^2.7.0",
+    "karma": "^1.7.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-cli": "^1.0.1",
+    "karma-jasmine": "^1.1.0",
+    "karma-typescript": "^3.0.0",
+    "rimraf": "^2.6.1",
+    "typescript": "^2.4.2"
+  }
+}
