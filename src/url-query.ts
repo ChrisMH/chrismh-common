@@ -183,6 +183,28 @@ export namespace UrlQuery {
         }
     }
 
+    /**
+     * Encodes to/from a base64 string during conversion
+     */
+    export class EncodedStringConverter implements IUrlConverter {
+        toUrl(source: any, target: any, pi: UrlQueryParamMetadata): void {
+            if (!source.hasOwnProperty(pi.propertyKey) || source[pi.propertyKey] === undefined) {
+                return;
+            }
+
+            if (source[pi.propertyKey]) {
+                target[pi.urlKey] = btoa(source[pi.propertyKey]);
+            }
+        }
+
+        fromUrl(source: any, target: any, pi: UrlQueryParamMetadata): void {
+            const value = source.hasOwnProperty(pi.urlKey) ? source[pi.urlKey] : undefined;
+            if (value) {
+                target[pi.propertyKey] = atob(value);
+            }
+        }
+    }
+
     export class IntConverter implements IUrlConverter {
         toUrl(source: any, target: any, pi: UrlQueryParamMetadata): void {
             if (!source.hasOwnProperty(pi.propertyKey) || source[pi.propertyKey] === undefined) {
